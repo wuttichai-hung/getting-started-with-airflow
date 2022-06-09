@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  airflow:
+    build: ./docker
+    image: airflow
+    container_name: airflow
+    restart: always
+    volumes:
+      - ./volumes/airflow:/usr/local/airflow
+    ports:
+      - 8080:8080
+
+networks:
+  default:
+    name: my-pre-existing-network
+    external: true
